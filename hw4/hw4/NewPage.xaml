@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="hw4.NewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:hw4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="ConfirmBtn" Icon="Accept" Click="ConfirmBtn_Click"/>
+            <AppBarButton x:Name="CancelBtn" Icon="Undo" Click="CancelBtn_Click"/>
+            <AppBarButton x:Name="DeleteBtn" Icon="Delete" Click="DeleteBtn_Click" IsEnabled="False"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="title" Grid.Row="0" Text="New Todo Item" Style="{StaticResource HeaderTextBlockStyle}"/>
+        <Grid Grid.Row="1">
+            <Frame x:Name="RightFrame" Content="{x:Bind DetailView}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Grid>
+    </Grid>
+</Page>

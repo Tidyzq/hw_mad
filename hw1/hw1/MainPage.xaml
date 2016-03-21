@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="hw1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:hw1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="speakBtn" Content="发言" HorizontalAlignment="Left" Margin="274,665,0,0" VerticalAlignment="Top" Click="speakBtnClick"/>
+        <Button x:Name="confirmBtn" Content="确定" HorizontalAlignment="Left" Margin="731,665,0,0" VerticalAlignment="Top" Click="confirmBtnClick"/>
+        <TextBlock x:Name="speakTextBlock" HorizontalAlignment="Left" Margin="67,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="578" Width="872"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="578,665,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+
+    </Grid>
+</Page>
