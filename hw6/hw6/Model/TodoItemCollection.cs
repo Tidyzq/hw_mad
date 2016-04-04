@@ -89,7 +89,7 @@ namespace hw6 {
                 var matches = regex.Matches(query);
                 string sql = "";
                 foreach (var match in matches) {
-                    sql += (sql.Length > 0 ? " AND " : "") + "Name GLOB '*" + match.ToString() + "*' OR Detail GLOB '*" + match.ToString() + "*' OR DueDate GLOB '*" + match.ToString() + "*'";
+                    sql += (sql.Length > 0 ? " AND " : "") + string.Format("Name GLOB '*{0}*' OR Detail GLOB '*{0}*' OR DueDate GLOB '*{0}*'", match.ToString());
                 }
                 using (var statement = db.Prepare("SELECT Id, Name, Detail, DueDate, Finished FROM TodoItem WHERE " + sql)) {
                     while (statement.Step() == SQLiteResult.ROW) {
