@@ -36,12 +36,15 @@ namespace hw6 {
             using (var statement = db.Prepare("INSERT INTO TodoItem (Name, Detail, DueDate, Finished) VALUES (?, ?, ?, ?);")) {
                 statement.Bind(1, item.Name);
                 statement.Bind(2, item.Detail);
-                Debug.WriteLine(item.DueDate.Date.ToString());
                 statement.Bind(3, string.Format("{0}/{1}/{2}", item.DueDate.Year, item.DueDate.Month, item.DueDate.Day));
                 statement.Bind(4, item.Finished == true ? 1 : 0);
                 statement.Step();
             }
-            base.Add(new TodoItem().copy(item));
+            using (var statement = db.Prepare("SELECT last_insert_rowid();")) {
+                statement.Step();
+                var id = (Int64)statement[0];
+                base.Add(new TodoItem(id, item.Name, item.Detail, item.DueDate, item.Finished == true));
+            }
         }
 
         new public void Remove(TodoItem item) {

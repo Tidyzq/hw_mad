@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="hw7.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:hw7"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="SubmitBtn" Icon="Accept" Click="SubmitBtn_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Title" Grid.Row="0" Text="LOGIN" Style="{StaticResource HeaderTextBlockStyle}"/>
+        <Grid Grid.Row="1">
+            <StackPanel Height="200" MaxWidth="400">
+                <TextBox x:Name="UsernameTextBox" TextWrapping="Wrap" Header="学号"/>
+                <PasswordBox x:Name="PasswordTextBox" Header="密码"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="CheckcodeTextBox" Grid.Column="0" TextWrapping="Wrap" Header="验证码"/>
+                    <Button Click="CheckCode_Click" Grid.Column="1" VerticalAlignment="Bottom" Padding="0">
+                        <Image x:Name="CheckCode"/>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
